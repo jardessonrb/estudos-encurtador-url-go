@@ -1,0 +1,41 @@
+url-shortener/
+├── cmd/
+│   └── api/
+│       └── main.go
+│
+├── internal/
+│   ├── domain/
+│   │   └── url.go
+│   │
+│   ├── usecase/
+│   │   └── url_usecase.go
+│   │
+│   ├── repository/
+│   │   ├── interfaces.go
+│   │   └── postgres/
+│   │       └── url_repository.go
+│   │
+│   ├── handler/
+│   │   └── url_handler.go
+│   │
+│   ├── dto/
+│   │   └── url_dto.go
+│   │
+│   ├── database/
+│   │   └── postgres.go
+│   │
+│   └── utils/
+│       └── short_code.go
+│
+├── configs/
+│   └── app.env
+│
+├── go.mod
+└── go.sum
+
+
+
+
+curl -X POST http://localhost:8080/gerar-codigo \
+  -H "Content-Type: application/json" \
+  -d '{"url": "localhost"}'
