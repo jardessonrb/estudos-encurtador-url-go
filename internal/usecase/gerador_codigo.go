@@ -1,16 +1,19 @@
 package usecase
 
 import (
+	"encurtador-url-go/internal/repository"
 	"math/rand"
 )
 
 type GeradorCodigoService struct {
-	Charset string
+	Charset  string
+	Contador repository.Contador
 }
 
-func NewGeradorCodigoService() *GeradorCodigoService {
+func NewGeradorCodigoService(contador repository.Contador) *GeradorCodigoService {
 	return &GeradorCodigoService{
-		Charset: "w8oVxhifqWcFQRtXvS209alLOM67KDCjpAb14NzUrPmg5ndkuGY3HyJZBsIeET",
+		Charset:  "w8oVxhifqWcFQRtXvS209alLOM67KDCjpAb14NzUrPmg5ndkuGY3HyJZBsIeET",
+		Contador: contador,
 	}
 }
 
@@ -52,10 +55,14 @@ func (service *GeradorCodigoService) GerarNumeroAleatorio() int {
 }
 
 func (service *GeradorCodigoService) GerarCodigo() string {
-	numero := service.GerarNumeroAleatorio()
+	// numero := service.GerarNumeroAleatorio()
+	numero, err := service.Contador.Next()
 
-	codigo := service.CalcularValorBase62(numero)
+	if err != nil {
+		panic(err)
+	}
+
+	codigo := service.CalcularValorBase62(int(numero))
 
 	return service.ReverseString(codigo)
-
 }

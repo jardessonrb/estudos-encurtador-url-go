@@ -4,13 +4,14 @@ import (
 	"encurtador-url-go/internal/domain"
 	"encurtador-url-go/internal/dto"
 	"encurtador-url-go/internal/repository/postgres"
+	"encurtador-url-go/internal/repository/redis"
 	"encurtador-url-go/internal/usecase"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-var geradorCodigo *usecase.GeradorCodigoService = usecase.NewGeradorCodigoService()
+var geradorCodigo *usecase.GeradorCodigoService = usecase.NewGeradorCodigoService(redis.NewContador())
 var repository *postgres.UrlRepository = postgres.NewUrlRepository()
 
 func EncurtarUrlHandler(contexto *gin.Context) {

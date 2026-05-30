@@ -2,7 +2,7 @@ package usecase
 
 import "testing"
 
-var service = NewGeradorCodigoService()
+var service = NewGeradorCodigoService(nil)
 
 func TestReverseString(t *testing.T) {
 	tests := []struct {
@@ -42,7 +42,7 @@ func TestCalcularValorBase62(t *testing.T) {
 }
 
 func TestNewGeradorCodigoService(t *testing.T) {
-	service = NewGeradorCodigoService()
+	service = NewGeradorCodigoService(nil)
 
 	if service == nil {
 		t.Fatal("Esperado service, obtido nil")
@@ -50,7 +50,7 @@ func TestNewGeradorCodigoService(t *testing.T) {
 }
 
 func TestNewGeradorCodigoServiceTamanhoCharset(t *testing.T) {
-	service = NewGeradorCodigoService()
+	service = NewGeradorCodigoService(nil)
 	var tamanhoEsperado int = 62
 
 	if len(service.Charset) != tamanhoEsperado {

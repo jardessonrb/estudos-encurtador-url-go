@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	database.ConnectionRedis()
 	database.ConnectionDatabase()
 	database.DB.AutoMigrate(&domain.URL{})
 
