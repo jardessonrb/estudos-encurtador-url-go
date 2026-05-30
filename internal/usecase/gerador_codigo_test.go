@@ -1,8 +1,16 @@
 package usecase
 
-import "testing"
+import (
+	"testing"
+)
 
-var service = NewGeradorCodigoService(nil)
+type ContadorMock struct{}
+
+func (c *ContadorMock) Next() (int64, error) {
+	return 1000000, nil
+}
+
+var service = NewGeradorCodigoService(&ContadorMock{})
 
 func TestReverseString(t *testing.T) {
 	tests := []struct {
@@ -55,5 +63,16 @@ func TestNewGeradorCodigoServiceTamanhoCharset(t *testing.T) {
 
 	if len(service.Charset) != tamanhoEsperado {
 		t.Errorf("Esperado %d, obtido %d", tamanhoEsperado, len(service.Charset))
+	}
+}
+
+func TestGerarCodigo(t *testing.T) {
+	service = NewGeradorCodigoService(&ContadorMock{})
+	codigoEsperado := "xQWo"
+
+	codigoGerado := service.GerarCodigo()
+
+	if codigoEsperado != codigoGerado {
+		t.Errorf("Esperado %s, obtido %s", codigoEsperado, codigoGerado)
 	}
 }
