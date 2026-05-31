@@ -4,6 +4,7 @@ import (
 	"encurtador-url-go/internal/database"
 	"encurtador-url-go/internal/domain"
 	"encurtador-url-go/internal/routes"
+	"os"
 )
 
 func main() {
@@ -13,5 +14,11 @@ func main() {
 
 	router := routes.ConfigRouter()
 
-	router.Run(":8080")
+	porta := os.Getenv("PORTA")
+
+	if porta == "" {
+		porta = "8080"
+	}
+
+	router.Run(":" + porta)
 }
