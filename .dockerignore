@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# IDEs
+.idea
+.vscode
+
+# Documentação
+docs
+
+# Binários
+encurtador-url
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Testes e cobertura
+coverage.out
+*.test
+
+# Docker
+Dockerfile
+
+# Arquivos temporários
+tmp
+temp
+
+# Sistema operacional
+.DS_Store
