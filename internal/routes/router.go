@@ -12,6 +12,7 @@ func ConfigRouter() *gin.Engine {
 	router.GET("/health", handler.CheckHealth)
 	router.POST("/gerar-codigo", handler.EncurtarUrlHandler)
 	router.GET("/:codigo", handler.RetornarURLPorCodigoHandler)
+	router.GET("/teste", handler.EndpointPesado)
 
 	return router
 }

@@ -60,6 +60,18 @@ func RetornarURLPorCodigoHandler(contexto *gin.Context) {
 
 func CheckHealth(contexto *gin.Context) {
 	contexto.JSON(200, gin.H{
-		"mensagem": "API On",
+		"mensagem": "API On v6",
+	})
+}
+
+func EndpointPesado(contexto *gin.Context) {
+	soma := 0
+
+	for i := 0; i < 1_000_000_000; i++ {
+		soma += i
+	}
+
+	contexto.JSON(200, gin.H{
+		"resultados": soma,
 	})
 }
