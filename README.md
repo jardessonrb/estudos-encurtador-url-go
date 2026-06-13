@@ -1,6 +1,6 @@
 # estudos-encurtador-url-go
 
-A ideia do projeto é ESTUDAR mais sobre a linguagem Go, mas principalmente estudar conceitos arquitetura de software usando ferramentas como Kubernetes, Docker, Redis, PostgreSQL.
+A ideia do projeto é ESTUDAR mais sobre a linguagem Go, mas principalmente estudar conceitos de arquitetura de software usando ferramentas como Kubernetes, Docker, Redis, PostgreSQL.
 
 O projeto é um encurtador de url, com funcionalidades simples, basicamente duas funcionalidades:
 
