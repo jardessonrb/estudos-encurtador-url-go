@@ -1,3 +1,4 @@
+``` 
 url-shortener/
 ├── cmd/
 │   └── api/
@@ -32,10 +33,12 @@ url-shortener/
 │
 ├── go.mod
 └── go.sum
+```
 
+- Exemplo de curl para post de url
 
-
-
+```
 curl -X POST http://localhost:8080/gerar-codigo \
   -H "Content-Type: application/json" \
   -d '{"url": "localhost"}'
+```
